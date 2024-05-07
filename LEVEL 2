@@ -1,0 +1,110 @@
+1)  Create a class 'Student' with three data members which are name, age and address. 
+The constructor of the class assigns default values to name as "unknown", age 
+as '0' and address as "not available". 
+
+It has two functions with the same name 'setInfo'. 
+First function has two parameters for name and age and assigns the same 
+whereas the second function takes has three parameters which are assigned to 
+name, age and address respectively. 
+
+Print the name, age and address of 10 students.
+Hint - Use array of objects in cpp )
+
+               
+
+
+
+
+
+
+
+Z
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+'#include <iostream>
+#include <string>
+
+class Student {
+private:
+    std::string name;
+    int age;
+    std::string address;
+
+public:
+     Student() : name("unknown"), age(0), address("not available") {}
+
+     void setInfo(std::string newName, int newAge) {
+        name = newName;
+        age = newAge;
+    }
+
+     void setInfo(std::string newName, int newAge, std::string newAddress) {
+        name = newName;
+        age = newAge;
+        address = newAddress;
+    }
+
+     void printInfo() {
+        std::cout << "Name: " << name << ", Age: " << age << ", Address: " << address << std::endl;
+    }
+};
+
+int main() {
+     Student students[10];
+
+    // Assigning information for each student
+    students[0].setInfo("Alice", 20, "123 Main St");
+    students[1].setInfo("Bob", 21, "456 Elm St");
+    students[2].setInfo("Charlie", 22, "789 Oak St");
+    students[3].setInfo("David", 23, "101 Pine St");
+    students[4].setInfo("Emma", 24, "202 Maple St");
+    students[5].setInfo("Frank", 25, "303 Cedar St");
+    students[6].setInfo("Grace", 26, "404 Walnut St");
+    students[7].setInfo("Henry", 27, "505 Birch St");
+    students[8].setInfo("Ivy", 28, "606 Ash St");
+    students[9].setInfo("Jack", 29, "707 Spruce St");
+
+     for (int i = 0; i < 10; ++i) {
+        std::cout << "Student " << i + 1 << ": ";
+        students[i].printInfo();
+    }
+
+    return 0;
+}
