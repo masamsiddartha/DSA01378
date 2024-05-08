@@ -1,0 +1,110 @@
+1) creat a class degree having. a function "get degree" that prints "I got a degree it has two subclasses namely. "undergradiate" and 'postgraduate 'each having a function with the same name that prints "lam an undergraduate "and "I am postgraduate respectively.call the function by creating an object of each of the three classes in cpp
+CODE-
+#include <iostream>
+
+class Degree {
+public:
+    void getDegree() {
+        std::cout << "I got a degree." << std::endl;
+    }
+};
+
+class Undergraduate : public Degree {
+public:
+    void getDegree() {
+        std::cout << "I am an undergraduate." << std::endl;
+    }
+};
+
+class Postgraduate : public Degree {
+public:
+    void getDegree() {
+        std::cout << "I am a postgraduate." << std::endl;
+    }
+};
+
+int main() {
+    Degree degreeObj;
+    Undergraduate undergradObj;
+    Postgraduate postgradObj;
+
+    degreeObj.getDegree();
+    undergradObj.getDegree();
+    postgradObj.getDegree();
+
+    return 0;
+}
+
+
+
+
+2) white a user-defined Add end  4 in C++ to find and display the sum of all the values. Which  are ending with 4 .
+CODE-
+#include <iostream>
+
+using namespace std;
+
+int sumEndingWithFour(int arr[], int size) {
+    int sum = 0;
+    for (int i = 0; i < size; ++i) {
+        if (arr[i] % 10 == 4) {
+            sum += arr[i];
+        }
+    }
+    return sum;
+}
+
+int main() {
+    int arr[] = {14, 24, 35, 46, 57, 64, 78, 84, 93, 104};
+    int size = sizeof(arr) / sizeof(arr[0]);
+
+    int sum = sumEndingWithFour(arr, size);
+
+    cout << "Sum of values ending with 4: " << sum << endl;
+
+    return 0;
+}
+
+
+
+
+3) write a program to penerate multiplication table in cpp
+CODE-
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int n;
+
+    cout << "Enter a number: ";
+    cin >> n;
+
+    cout << "Multiplication Table of " << n << ":\n";
+    for (int i = 1; i <= 10; ++i) {
+        cout << n << " * " << i << " = " << n * i << endl;
+    }
+
+    return 0;
+}
+
+
+
+4) address of each element of an arrey in cpp
+CODE-
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int arr[] = {10, 20, 30, 40, 50};
+
+    int n = sizeof(arr) / sizeof(arr[0]);
+
+    cout << "Memory addresses of each element in the array:" << endl;
+    for (int i = 0; i < n; ++i) {
+        cout << "Element " << i << ": " << &arr[i] << endl;
+    }
+
+    return 0;
+}
