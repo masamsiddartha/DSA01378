@@ -1,0 +1,103 @@
+You are required to compute the area of a rectangle using classes. 
+
+Create two classes: 
+
+1. Rectangle
+The Rectangle class should have two data fields-width and height of int types. 
+The class should have display() method, to print the width and height of the 
+rectangle separated by space.
+
+2. RectangleArea
+The RectangleArea class is derived from Rectangle class, i.e., it is the sub-
+class of Rectangle class. The class should have read_input() method, to read 
+the values of width and height of the rectangle. The RectangleArea class should 
+also overload the display() method to print the area  (widthxheight) of the 
+rectangle.
+
+CODE-
+ #include <iostream>
+using namespace std;
+
+class Rectangle {
+protected:
+    int width;
+    int height;
+public:
+    void display() {
+    cout << width << " " << height << endl;
+    }
+};
+class RectangleArea : public Rectangle {
+public:
+    void read_input() {
+    cin >> width >> height;
+    }
+    void display() {
+    cout << width * height << endl;
+    }
+};
+int main(){
+    RectangleArea r;
+    r.read_input();
+    r.Rectangle::display();
+    r.display();
+    return 0;
+}
+
+
+2) Given an array of distinct elements of size N, the task is to rearrange the 
+elements of the array in a zig-zag fashion so that the converted array should 
+be in the below form: 
+
+arr[0] < arr[1]  > arr[2] < arr[3] > arr[4] < . . . . arr[n-2] < arr[n-1] > arr[n]. in cpp
+
+
+Input: N = 7 , arr[] = {4, 3, 7, 8, 6, 2, 1} 
+Output: arr[] = {3, 7, 4, 8, 2, 6, 1}
+Explanation: The given array is in zig-zag pattern as we can see 3 < 7 > 4 < 8 > 2 < 6 >1
+
+Input: N = 4 , arr[] = {1, 4, 3, 2} 
+Output: arr[] = {1, 4, 2, 3}
+Explanation: The given array is in zig-zag pattern as we can see 1 < 4 > 2 < 3
+
+
+CODE-
+#include <iostream>
+#include <vector>
+using namespace std;
+
+void zigZag(vector<int>& arr) {
+    int n = arr.size();
+    bool flag = true; // true indicates <, false indicates >
+    
+    for (int i = 0; i < n - 1; i++) {
+        if (flag) {
+            if (arr[i] > arr[i + 1])
+                swap(arr[i], arr[i + 1]);
+        } else {
+            if (arr[i] < arr[i + 1])
+                swap(arr[i], arr[i + 1]);
+        }
+        flag = !flag; // flip the flag for the next iteration
+    }
+}
+
+int main() {
+    vector<int> arr1 = {4, 3, 7, 8, 6, 2, 1};
+    vector<int> arr2 = {1, 4, 3, 2};
+    
+    zigZag(arr1);
+    zigZag(arr2);
+    
+    cout << "Output for arr1: ";
+    for (int num : arr1)
+        cout << num << " ";
+    cout << endl;
+    
+    cout << "Output for arr2: ";
+    for (int num : arr2)
+        cout << num << " ";
+    cout << endl;
+    
+    return 0;
+}
